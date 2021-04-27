@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { error } from 'selenium-webdriver';
 import { LoginService } from 'src/app/servicios/login.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class RegistroComponent implements OnInit {
   password:string;
 
   constructor(private router:Router,
-              private flashMessage:FlashMessagesService,
+              private flashMessages:FlashMessagesService,
               private loginService:LoginService) { }
 
   ngOnInit(): void {
@@ -26,7 +27,15 @@ export class RegistroComponent implements OnInit {
   }
 
   registro(){
-    this.loginService.registrarse
+    this.loginService.registrarse(this.email,this.password)
+    .then(res => {
+      this.router.navigate(['/']);
+    })
+    .catch(error=> {
+      this.flashMessages.show(error.message,{
+        cssClass:'alert-danger' ,timeout:4000
+      });
+    });
   }
 
 }

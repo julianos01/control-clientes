@@ -31,5 +31,6 @@ export class CabeceroComponent implements OnInit {
     this.loginService.logout();
     this.isLoggedIn=false;
     this.router.navigate(['/login']);
+    this.loggedInUser="";
   }
 }

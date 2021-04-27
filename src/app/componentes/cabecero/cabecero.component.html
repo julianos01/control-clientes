@@ -29,8 +29,14 @@
                     </a>
                 </li>
 
+                <li *ngIf="!isLoggedIn" class="nav-item">
+                    <a routerLink="/registrarse" class="nav-link" routerLinkActive="router-link-active">
+                        <i class="fas fa-user"></i> Registro
+                    </a>
+                </li>
+
                 <li *ngIf="isLoggedIn" class="nav-item">
-                    <a style="cursor: pointer" (click)="logout()" class="nav-link">
+                    <a style="cursor: pointer" (click)="logout()" class="nav-link" routerLinkActive="router-link-active">
                         <i class="fas fa-user-times"></i> Salir
                     </a>
                 </li>
