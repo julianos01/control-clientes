@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+.cardHeight
+{
+    height: 20vmin;
+}
+
+.modalBorder{
+    border-color: red;
+    border-style: solid;
+}
+
+.bodyBorder{
+    border-bottom-color: red;
+    border-left-color: red;
+    border-right-color: red;
+}
